@@ -4,6 +4,16 @@ module.exports = {
         rules: [
             {
                 test: /\.(js|jsx)$/,
+                enforce: "pre",
+                loader: "eslint-loader",
+                exclude: /node_modules/,
+                options: {
+                    configFile: "./.eslintrc.json",
+                    fix: true
+                }
+            },
+            {
+                test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader"
